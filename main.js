@@ -6,6 +6,15 @@ const btnOne = document.getElementById('position-one');
 const btnTwo = document.getElementById('position-two');
 const btnThree = document.getElementById('position-three');
 const btnFour = document.getElementById('position-four');
+const jumpButtons = document.querySelectorAll('.jump-button');
+
+jumpButtons[0].classList.add('active');
+
+function clearButtons() {
+    jumpButtons.forEach((button) => {
+        button.classList.remove('active');
+    })
+}
 
 slides.forEach((slide) => {
         let slideIndex = slidesArray.indexOf(slide);
@@ -24,12 +33,16 @@ slides.forEach((slide) => {
             slides.forEach((slide) => {
                 slide.style.transform = 'translateX(0px)';
             })
-
+            clearButtons();
+            jumpButtons[0].classList.add('active');
         } else {
             slides.forEach((slide) => {
                 slide.style.transform = `translateX(-${carouselWidth * (slideIndex + 1)}px)`;
             })
+            clearButtons();
+            jumpButtons[slideIndex + 1].classList.add('active');
         }
+      
     }
 
     const previous = () => {
@@ -37,11 +50,15 @@ slides.forEach((slide) => {
             slides.forEach((slide) => {
                 slide.style.transform = `translateX(-${carouselWidth * (slidesArray.length -1)}px)`;
             })
+            clearButtons();
+            jumpButtons[slidesArray.length - 1].classList.add('active');
 
         } else {
             slides.forEach((slide) => {
                 slide.style.transform = `translateX(-${carouselWidth * (slideIndex - 1)}px)`;
             })
+            clearButtons();
+            jumpButtons[slideIndex - 1].classList.add('active');
         }
     }
 
