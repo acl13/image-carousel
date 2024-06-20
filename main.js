@@ -75,25 +75,35 @@ const moveToSlide = function(position) {
 
 btnOne.addEventListener('click', () => {
     moveToSlide(0);
+    clearButtons();
+    jumpButtons[0].classList.add('active');
 });
 
 btnTwo.addEventListener('click', () => {
     moveToSlide(1);
+    clearButtons();
+    jumpButtons[1].classList.add('active');
 });
 
 btnThree.addEventListener('click', () => {
     moveToSlide(2);
+    clearButtons();
+    jumpButtons[2].classList.add('active');
 });
 
 btnFour.addEventListener('click', () => {
     moveToSlide(3);
+    clearButtons();
+    jumpButtons[3].classList.add('active');
 });
 
 let num = 1; 
 const scrollSlides = setInterval(() => {
   if (num === 4) {
     num = 0; 
-  }  
+  } 
+  clearButtons();
+  jumpButtons[num].classList.add('active'); 
   moveToSlide(num);
   num += 1;
 }, 5000);
