@@ -72,5 +72,16 @@ btnFour.addEventListener('click', () => {
     moveToSlide(3);
 });
 
+let num = 1; 
+const scrollSlides = setInterval(() => {
+  if (num === 4) {
+    num = 0; 
+  }  
+  moveToSlide(num);
+  num += 1;
+}, 5000);
 
+document.addEventListener('click', () => {
+    clearInterval(scrollSlides);
+})
 
