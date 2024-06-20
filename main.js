@@ -50,6 +50,27 @@ slides.forEach((slide) => {
 });
 
 
+const moveToSlide = function(position) {
+    slides.forEach((slide) => {
+         slide.style.transform = `translateX(-${carouselWidth * position}px)`;
+    })
+}
+
+btnOne.addEventListener('click', () => {
+    moveToSlide(0);
+});
+
+btnTwo.addEventListener('click', () => {
+    moveToSlide(1);
+});
+
+btnThree.addEventListener('click', () => {
+    moveToSlide(2);
+});
+
+btnFour.addEventListener('click', () => {
+    moveToSlide(3);
+});
 
 
 

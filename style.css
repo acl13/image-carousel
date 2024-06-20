@@ -5,6 +5,7 @@ body {
     text-align: center;
 }
 
+
 .carousel-container {
     display: flex;
     width: 600px; 
@@ -52,3 +53,7 @@ body {
     right: 525px; 
 }
 
+.jump-button {
+   transform: scale(2);
+    margin: 20px; 
+}
